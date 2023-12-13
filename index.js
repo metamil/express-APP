@@ -2,6 +2,27 @@ const express = require('express');
 const app = express();
 const path  = require("path");
 const os = require("os");
+const fs = require('fs');
+
+
+
+app.get("/read",(req,res) => {
+
+const directory = './';
+
+fs.readdir(directory, (err, files) => {
+  files.forEach(file => {
+    // get the details of the file 
+    let fileDetails = fs.lstatSync(path.resolve(directory, file));
+    // check if the file is directory 
+    if (fileDetails.isDirectory()) {
+      console.log('Directory: ' + file);
+    } else {
+      console.log('File: ' + file);
+    }
+  });
+});
+})
 
 
 
