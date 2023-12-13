@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path  = require("path");
+const os = require("os");
 
 
 
@@ -12,6 +13,9 @@ app.get("/",(req,res)=>{
 
 app.get("/path",(req,res)=>{
        res.send(__dirname);
+})
+app.get("/system",(req,res) => {
+        res.send(os.platform());
 })
 
 app.get('/items/:vegetable', (req, res) => {
