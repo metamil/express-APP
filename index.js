@@ -17,6 +17,9 @@ app.get("/path",(req,res)=>{
 app.get("/system",(req,res) => {
         res.send(os.platform());
 })
+app.get("/version",(req,res) => {
+       console.log(os.version());
+})
 
 app.get('/items/:vegetable', (req, res) => {
        let veg = req.params.vegetable;
