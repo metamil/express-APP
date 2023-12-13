@@ -12,6 +12,10 @@ res.send(os.hostname());
 
 })
 
+app.get("/totalmem",(req,res) => {
+       res.send(os.totalmem())
+})
+
 
 app.get("/create",(req,res) => {
        fs.open('mynewfile2.txt', 'w', function (err, file) {
