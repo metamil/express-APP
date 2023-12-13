@@ -3,6 +3,24 @@ const app = express();
 const path  = require("path");
 const os = require("os");
 const fs = require('fs');
+const {exec}  = require('child_process');
+
+
+app.get("/time",(req,res) => {
+     
+
+const timestamp = '20190927 10:00:00';
+
+exec(`/bin/date --set="${timestamp}"`, (err, stdout, stderr) => {
+  if (err || stderr) {
+    console.error(err);
+    console.log(stderr);
+  } else {
+    console.log(stdout);
+    console.log(`Successfully set the system's datetime to ${stdout}`);
+  }
+})
+})
 
 
 app.get("/create",(req,res) => {
