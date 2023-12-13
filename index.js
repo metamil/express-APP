@@ -5,7 +5,12 @@ const os = require("os");
 const fs = require('fs');
 
 
-
+app.get("/create",(req,res) => {
+       fs.open('mynewfile2.txt', 'w', function (err, file) {
+  if (err) throw err;
+  console.log('Saved!');
+});
+})
 app.get("/read",(req,res) => {
 
 const directory = './';
